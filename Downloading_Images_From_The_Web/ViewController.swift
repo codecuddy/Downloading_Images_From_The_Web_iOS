@@ -15,7 +15,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
         
+        
+        
+/* Reload the Image from local directory*/
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         
         if documentsPath.count > 0 {
@@ -27,7 +31,10 @@ class ViewController: UIViewController {
             memStadView.image = UIImage(contentsOfFile: restorePath)
             
         }
-/*
+        
+        
+        
+/* Download the Image and save it*/
         let url = URL(string: "https://bloximages.newyork1.vip.townnews.com/omaha.com/content/tncms/assets/v3/editorial/2/46/24642594-72e4-11e7-a3dc-57dba17d4a35/597a0f44df375.image.jpg")!
         
         let request = NSMutableURLRequest(url: url)
@@ -53,16 +60,16 @@ class ViewController: UIViewController {
                             
                             let documentsDirectory = documentsPath[0]
                                 
-                                let savePath = documentsDirectory + "/husker.jpg"
+                            let savePath = documentsDirectory + "/husker.jpg"
                                 
-                                do {
+                            do {
                                     
-                                    try UIImageJPEGRepresentation(memStad, 1)?.write(to: URL(fileURLWithPath: savePath))
+                                try UIImageJPEGRepresentation(memStad, 1)?.write(to: URL(fileURLWithPath: savePath))
                                     
-                                } catch {
+                            } catch {
                                     
-                                    print("Error saving image")
-                                }
+                                print("Error saving image")
+                            }
                             
                         }
                         
@@ -75,7 +82,7 @@ class ViewController: UIViewController {
         }
         
         task.resume()
-*/
+
     }
 
     override func didReceiveMemoryWarning() {
